@@ -100,23 +100,7 @@ html.yellow >body , a {
 }
 /* ////////sidebar////////// */
 
-#switcher {
-	display: flex;
-	align-items: center;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-  }
-  #switcher li {
-	float: left;
-	width: 30px;
-	cursor: pointer;
-	height: 30px;
-	margin: 0 15px 15px 0;
-	border-radius: 30px;
-	border: 3px solid black;
-  }
+
   
   #grayButton {
 	background: gray;
@@ -614,6 +598,18 @@ main .chart ,.chart1 {
 
 
 
+#switcher {
+	
+  }
+  #switcher li {
+	float: left;
+	width: 30px;
+	cursor: pointer;
+	height: 30px;
+	margin: 0 15px 15px 0;
+	border-radius: 30px;
+	border: 3px solid black;
+  }
 
 
 
