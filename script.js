@@ -195,3 +195,140 @@ tooltip: {
 
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
+
+
+//////////////color switcher////////////
+
+$(document).ready(function () {
+	$('#grayButton').click(switchGray);
+	$('#whiteButton').click(switchWhite);
+	$('#blueButton').click(switchBlue);
+	$('#yellowButton').click(switchYellow);
+
+	// Your script code here
+
+	function switchGray() {
+		$('html').attr('class', 'gray');
+	}
+
+	function switchWhite() {
+		$('html').attr('class', 'white');
+	}
+
+	function switchBlue() {
+		$('html').attr('class', 'blue');
+	}
+
+	function switchYellow() {
+		$('html').attr('class', 'yellow');
+	}
+});
+
+////////charts/////////////////////////////////
+const ctx = document.getElementById('barchart').getContext('2d');
+const barchart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Safari', 'Chrome', 'Firefox', 'CriOS', 'Opera', 'Others'],
+        datasets: [{
+            label: 'Pageviews by Browsers',
+            data: [2, 19, 13, 25, 2, 13],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+
+const ctx2 = document.getElementById('doughnut').getContext('2d');
+const doughnut = new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+        labels: ['Safari', 'Chrome', 'Firefox', 'CriOS', 'Opera', 'Others'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 10, 5, 8, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+// APEXCHART
+var options = {
+	series: [{
+	name: 'series1',
+	data: [31, 40, 28, 51, 42, 109, 100]
+  }, {
+	name: 'series2',
+	data: [11, 32, 45, 32, 34, 52, 41]
+  }],
+	chart: {
+	height: 350,
+	type: 'area'
+  },
+  dataLabels: {
+	enabled: false
+  },
+  stroke: {
+	curve: 'smooth'
+  },
+  xaxis: {
+	type: 'datetime',
+	categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+  },
+  tooltip: {
+	x: {
+	  format: 'dd/MM/yy HH:mm'
+	},
+  },
+  };
+  
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
