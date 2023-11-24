@@ -225,110 +225,83 @@ $(document).ready(function () {
 });
 
 ////////charts/////////////////////////////////
-const ctx = document.getElementById('barchart').getContext('2d');
-const barchart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Safari', 'Chrome', 'Firefox', 'CriOS', 'Opera', 'Others'],
-        datasets: [{
-            label: 'Pageviews by Browsers',
-            data: [2, 19, 13, 25, 2, 13],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
 
 
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
 
-const ctx2 = document.getElementById('doughnut').getContext('2d');
-const doughnut = new Chart(ctx2, {
-    type: 'doughnut',
-    data: {
-        labels: ['Safari', 'Chrome', 'Firefox', 'CriOS', 'Opera', 'Others'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 10, 5, 8, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+	['Year', 'Sales', 'Expenses'],
+	['2013',  1000,      400],
+	['2014',  1170,      460],
+	['2015',  660,       1120],
+	['2016',  1030,      540]
+  ]);
 
-
-// APEXCHART
-var options = {
-	series: [{
-	name: 'series1',
-	data: [31, 40, 28, 51, 42, 109, 100]
-  }, {
-	name: 'series2',
-	data: [11, 32, 45, 32, 34, 52, 41]
-  }],
-	chart: {
-	height: 350,
-	type: 'area'
-  },
-  dataLabels: {
-	enabled: false
-  },
-  stroke: {
-	curve: 'smooth'
-  },
-  xaxis: {
-	type: 'datetime',
-	categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-  },
-  tooltip: {
-	x: {
-	  format: 'dd/MM/yy HH:mm'
-	},
-  },
+  var options = {
+	title: 'Company Performance',
+	hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+	vAxis: {minValue: 0}
   };
-  
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
-  chart.render();
+
+  var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+  chart.draw(data, options);
+}
+
+////////////sec//////////////////
+
+google.charts.load('current', {'packages':['bar']});
+google.charts.setOnLoadCallback(drawStuff);
+
+function drawStuff() {
+  var data = new google.visualization.arrayToDataTable([
+	['Move', 'Percentage'],
+	["King's pawn (e4)", 44],
+	["Queen's pawn (d4)", 31],
+	["Queen's bishop pawn (c4)", 10],
+  ]);
+
+  var options = {
+	width: 270,
+	legend: { position: 'none' },
+	chart: {
+	  title: 'Chess opening moves',
+	  subtitle: 'popularity by percentage' },
+	axes: {
+	  x: {
+		0: { side: 'top', label: 'White to move'} // Top x-axis.
+	  }
+	},
+	bar: { groupWidth: "50%" }
+  };
+
+  var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+  // Convert the Classic options to Material options.
+  chart.draw(data, google.charts.Bar.convertOptions(options));
+};
+
+////////////third//////////////////
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+
+function drawCharts() {
+
+  var data = google.visualization.arrayToDataTable([
+	['Task', 'Hours per Day'],
+	['Work',     11],
+	['Eat',      2],
+	['Commute',  2],
+	['Watch TV', 2],
+	['Sleep',    7]
+  ]);
+
+  var options = {
+	title: 'My Daily Activities'
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+  chart.draw(data, options);
+}

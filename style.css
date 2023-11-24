@@ -36,20 +36,13 @@ body {
 	background:rgb(230, 237, 240) ;
 	overflow-x: hidden;
 }
-
+/* ////////gray///////////// */
 html.gray >body  {
 	background: #060714;
 	color: #fff !important;
 }
-html.gray > body .box-info li {
-    background: #0c0c1e!important; 
-}
-html.gray > body .box-info li .text h3 {
-    color: #fbfbfb;
-}
-html.gray > body .box-info li .text p {
-    color: #fbfbfb;
-}
+
+
 html.gray >body , html.gray > body i {
 	color: #fff !important;
 
@@ -58,6 +51,7 @@ html.gray >body , html.gray > body a {
 	color: #fff !important;
 
 }
+
 /* /////white/////////// */
 html.white >body  {
 	background:rgb(230, 237, 240);
@@ -74,7 +68,7 @@ html.white >body , html.white > body  a {
 }
 /* ///////////////blue//////////// */
 html.blue >body {
-	background: rgb(66, 66, 228);
+	background: #4265b6;
 	color: white !important;
 }
 html.blue >body , html.blue > body i{
@@ -87,7 +81,7 @@ html.blue >body ,  html.blue > body a {
 }
 /* /////////////////////green/////////////////// */
 html.yellow >body {
-	background: yellow;
+	background: #ffce26;
 	color: #060714 !important;
 }
 html.yellow >body , i {
@@ -100,20 +94,7 @@ html.yellow >body , a {
 }
 /* ////////sidebar////////// */
 
-
   
-  #grayButton {
-	background: gray;
-  }
-  #whiteButton {
-	background: white;
-  }
-  #blueButton {
-	background: blue;
-  }
-  #yellowButton {
-	background: yellow;
-  }
 
 a {
 	text-decoration: none !important;
@@ -126,6 +107,29 @@ li {
 
 
 
+#switcher {
+	
+}
+#switcher li {
+	float: left;
+	width: 100%;
+	padding: 3px 10px;
+	font-weight: 600;
+	cursor: pointer;
+	margin: 0 15px 15px 0;
+}
+#grayButton {
+	background: gray;
+}
+#whiteButton {
+	background: #e6edf0
+}
+#blueButton {
+	background: #4265b6
+}
+#yellowButton {
+	background: #ffce26;
+  }
 
 
 
@@ -598,18 +602,6 @@ main .chart ,.chart1 {
 
 
 
-#switcher {
-	
-  }
-  #switcher li {
-	float: left;
-	width: 30px;
-	cursor: pointer;
-	height: 30px;
-	margin: 0 15px 15px 0;
-	border-radius: 30px;
-	border: 3px solid black;
-  }
 
 
 
